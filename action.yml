@@ -26,7 +26,7 @@ runs:
   args:
     - ${{ github.event.repository.owner.login }}
     - ${{ github.event.repository.name }}
-    - ${{ secrets.GITHUB_TOKEN }}
+    - ${{ secrets.GHTKN }}
     - ${{ inputs.title }}
     - ${{ inputs.body }}
     - ${{ inputs.labels }}
