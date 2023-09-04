@@ -1,0 +1,29 @@
+name: Open an Issue
+description: This action will open an issue on the repository that triggered the workflow.
+author: Matt Compton
+inputs:
+  title:
+    description: Issue title
+    required: true
+    default: "Something's borked"
+  body:
+    description: Issue body
+    required: true
+    default: "Something's borked"
+  labels:
+    description: Issue labels
+    required: false
+    default: "bug"
+outputs:
+  result:
+    description: "Did it work?"
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ github.event.repository.owner.login }}
+    - ${{ github.event.repository.name }}
+    - ${{ secrets.GITHUB_TOKEN }}
+    - ${{ inputs.title }}
+    - ${{ inputs.body }}
+    - ${{ inputs.labels }}
