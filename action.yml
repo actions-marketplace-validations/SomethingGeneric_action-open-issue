@@ -1,6 +1,8 @@
 name: Open an Issue
 description: This action will open an issue on the repository that triggered the workflow.
 author: Matt Compton
+icon: alert-circle
+color: orange
 inputs:
   title:
     description: Issue title
