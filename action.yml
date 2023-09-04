@@ -17,6 +17,18 @@ inputs:
     description: Issue labels
     required: false
     default: "bug"
+  pat:
+    description: GitHub Personal Access Token
+    required: true
+    default: "empty"
+  repository:
+    description: Repository name
+    required: true
+    default: "empty"
+  owner:
+    description: Repository owner
+    required: true
+    default: "empty"
 outputs:
   result:
     description: "Did it work?"
@@ -24,9 +36,9 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ github.event.repository.owner.login }}
-    - ${{ github.event.repository.name }}
-    - ${{ secrets.GHTKN }}
+    - ${{ inputs.owner }}
+    - ${{ inputs.repository }}
+    - ${{ inputs.pat }}
     - ${{ inputs.title }}
     - ${{ inputs.body }}
     - ${{ inputs.labels }}
